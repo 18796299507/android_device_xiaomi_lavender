@@ -29,6 +29,11 @@ DEVICE_PATH := device/xiaomi/lavender
 # Inherit properties.mk
 $(call inherit-product, $(DEVICE_PATH)/properties.mk)
 
+# Inherit Extras
+$(call inherit-product-if-exists, vendor/Extras/config.mk)
+$(call inherit-product-if-exists, vendor/Lawnchair/config.mk)
+$(call inherit-product-if-exists, vendor/ANXCamera/config.mk)
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
